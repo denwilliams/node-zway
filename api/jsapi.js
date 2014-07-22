@@ -1,0 +1,1 @@
+var Device = require('../device');
