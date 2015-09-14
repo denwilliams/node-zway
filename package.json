@@ -1,0 +1,24 @@
+{
+  "name": "node-zway",
+  "version": "0.1.0",
+  "description": "Node JS interface for Z-Way (Razberry)",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Den Williams",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "eventemitter2": "^0.4.14",
+    "q": "^1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.2",
+    "nock": "^2.10.0",
+    "should": "^7.1.0"
+  },
+  "directories": {
+    "test": "test"
+  }
+}

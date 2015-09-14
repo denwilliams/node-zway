@@ -1,0 +1,1 @@
+describe('Device API Client', require('./deviceapi'));
