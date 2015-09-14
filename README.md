@@ -58,7 +58,7 @@ console.log(device1['DoorLock']).get('mode');
 
 ```js
 var device1 = deviceApi.getDevice(1, 98);
-console.log(device1['DoorLock']).lock();
+console.log(device1['DoorLock'].lock());
 ```
 
 ## Notes
