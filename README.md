@@ -61,6 +61,20 @@ var device1 = deviceApi.getDevice(1, 98);
 console.log(device1['DoorLock'].lock());
 ```
 
+## Command Class Info
+
+### 98 - DoorLock
+
+Commands:
+
+- lock();
+- unlock();
+- refresh();
+
+Queries:
+
+- isLocked();
+
 ## Notes
 
 Have also looked at using the JS API (/ZAutomation) but the authentication system for this is limited and impractical.
