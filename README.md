@@ -51,7 +51,7 @@ deviceApi.onAny(function() {
 
 ```js
 var device1 = deviceApi.getDevice(1);
-console.log(device1['DoorLock']).get('mode');
+console.log(device1['DoorLock'].get('mode'));
 ```
 
 ## Running Device Commands
