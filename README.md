@@ -47,6 +47,25 @@ deviceApi.onAny(function() {
 });
 ```
 
+## Reading Device Data
+
+```js
+var device1 = deviceApi.getDevice(1);
+console.log(device1['DoorLock']).get('mode');
+```
+
+## Running Device Commands
+
+```js
+var device1 = deviceApi.getDevice(1, 98);
+console.log(device1['DoorLock']).lock();
+```
+
 ## Notes
 
 Have also looked at using the JS API (/ZAutomation) but the authentication system for this is limited and impractical.
+
+## TODO
+
+* Make it more flexible to reference everything by either command class name or ID (decimal or hex).
+* Add more command class info
