@@ -8,7 +8,12 @@ Client library for the Z-Way Device API, allows for easy polling for changes, ru
 
 ```js
 var zway = require('node-zway');
+
+// without password
 var deviceApi = new zway.DeviceApi('192.168.0.123');
+
+// with password
+var deviceApi = new zway.DeviceApi({ host: '192.168.0.123', user: 'admin', password: 'mypass' });
 ```
 
 ## Manually Refreshing
@@ -43,7 +48,7 @@ deviceApi.on('5.98.*', function(data) {
 For debugging:
 ```js
 deviceApi.onAny(function() {
-    console.log('event data:', data);    
+    console.log('event data:', data);
 });
 ```
 
