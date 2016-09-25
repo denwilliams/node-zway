@@ -20,10 +20,9 @@ var deviceApi = new zway.DeviceApi({ host: '192.168.0.123', user: 'admin', passw
 
 ```js
 deviceApi.refresh()
-.then(function() {
+.then(() => {
     console.log('Done!');
-})
-.done();
+});
 ```
 
 ## Polling
@@ -31,7 +30,7 @@ deviceApi.refresh()
 Rather than manually refreshing for updates you can just start polling at a defined interval.
 
 ```js
-var interval = 1000;
+var interval = 1000; // ms
 deviceApi.poll(interval);
 ```
 
@@ -40,14 +39,14 @@ deviceApi.poll(interval);
 The main reason to poll is to receive events. The client uses EventEmitter2 that supports wildcard events. The event format is `device.commandclass.eventname`.
 
 ```js
-deviceApi.on('5.98.*', function(data) {
+deviceApi.on('5.98.*', data => {
     console.log('event data:', data);
 });
 ```
 
 For debugging:
 ```js
-deviceApi.onAny(function() {
+deviceApi.onAny(() => {
     console.log('event data:', data);
 });
 ```
