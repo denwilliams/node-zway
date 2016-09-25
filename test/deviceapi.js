@@ -1,53 +1,23 @@
-require('should');
-var DeviceApi = require('../lib').DeviceApi;
-var nock = require('nock');
+const test = require('ava');
+const DeviceApi = require('../lib').DeviceApi;
+const nock = require('nock');
 
-var host = 'zway';
-var url = 'http://'+host+':8083';
-var data = require('./data.json');
+const host = 'zway';
+const url = 'http://'+host+':8083';
 
-module.exports = function() {
+const data = require('./data.json');
 
-  it('should load all data on refresh', function (done) {
-    var deviceApi = new DeviceApi(host);
+test('should load all data on refresh', t => {
+  var deviceApi = new DeviceApi(host);
 
-    var fakeApi = nock(url, {allowUnmocked: false})
-      .get('/ZWaveAPI/Data/0')
-        .reply(200, data)
-      .get('/ZWaveAPI/Data/'+data.updateTime)
-        .reply(200, {updateTime:data.updateTime+1})
-        ;
+  var fakeApi = nock(url, { allowUnmocked: false })
+    .get('/ZWaveAPI/Data/0')
+      .reply(200, data)
+    .get('/ZWaveAPI/Data/'+data.updateTime)
+      .reply(200, {updateTime:data.updateTime+1});
 
-    deviceApi.refresh()
-    .then(function() {
-      console.log(fakeApi.isDone());
-      if (fakeApi.isDone()) done();
-      else done(new Error('NOT DONE'));
-    })
-    .fail(function(err) {
-      done(err);
-    });
+  return deviceApi.refresh()
+  .then(() => {
+    if (!fakeApi.isDone()) throw new Error('NOT DONE');
   });
-
-  it('should', function (done) {
-
-    var deviceApi = new DeviceApi(host);
-
-    var fakeApi = nock(url, {allowUnmocked: false})
-      .get('/ZWaveAPI/Run/devices[5].instances[0].commandClasses[98].Set(255)')
-        .reply(200, 'null');
-
-    var device = deviceApi.getDevice(5, 98);
-    device['DoorLock'].lock()
-      .then(function () {
-        console.log(fakeApi.isDone());
-        if (fakeApi.isDone()) done();
-        else done(new Error('NOT DONE'));
-      })
-      .fail(function(err) {
-        console.error(err.stack);
-      });
-
-  });
-
-};
+});

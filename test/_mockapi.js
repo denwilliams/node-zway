@@ -4,9 +4,3 @@ exports.create = function(rootUrl) {
 
   return fakeApi;
 };
-
-
-// request('http://api.example.com/musics', function(error, response) {
-//   expect(musicList.isDone()).to.eql(true);
-//   done();
-// });
