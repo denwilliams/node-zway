@@ -36,7 +36,7 @@ deviceApi.poll(interval);
 
 ## Events
 
-The main reason to poll is to receive events. The client uses EventEmitter2 that supports wildcard events. The event format is `device.commandclass.eventname`.
+The main reason to poll is to receive events. The client uses EventEmitter2 that supports wildcard events. The event format is `device_id.command_class_id.eventname`.
 
 ```js
 deviceApi.on('5.98.*', data => {
@@ -54,18 +54,51 @@ deviceApi.onAny(() => {
 ## Reading Device Data
 
 ```js
-var device1 = deviceApi.getDevice(1);
-console.log(device1['DoorLock'].get('mode'));
+var device1 = deviceApi.getDevice(1, 98);
+console.log(device1.DoorLock.get('mode'));
 ```
 
 ## Running Device Commands
 
 ```js
 var device1 = deviceApi.getDevice(1, 98);
-console.log(device1['DoorLock'].lock());
+console.log(device1.DoorLock.lock());
 ```
 
 ## Command Class Info
+
+### 37 - SwitchBinary
+
+Commands:
+
+- activate();
+- deactivate();
+- toggle();
+- refresh();
+
+Queries:
+
+- TODO: isActivated();
+
+### 48 - SensorBinary
+
+Events:
+
+- onChange();
+
+Queries:
+
+- getItems();
+
+### 49 - SensorMultilevel
+
+Events:
+
+- onChange();
+
+Queries:
+
+- getItems();
 
 ### 98 - DoorLock
 
@@ -78,6 +111,12 @@ Commands:
 Queries:
 
 - isLocked();
+
+### 113 - Alarm
+
+Events:
+
+- on();
 
 ## Notes
 
