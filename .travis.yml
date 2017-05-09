@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- '4'
+before_install:
+- npm install
+deploy:
+  provider: npm
+  email: work@denwilliams.net
+  on:
+    tags: true
+    repo: denwilliams/node-zway
+  api_key:
+    secure: PBRgZiAemAO5r3gTyQKC/1HMWRU7XZGD/WM0rPRhE22dilWMpQ/vC2YmtDB0xu3AkB5zckI8+MWmcfePwPLl7KUp9qf4UN9PhSRPQJhLc4vF7z+5FuMlZRwRgknPzFY2p3XBK66+yJYcipr5MmoKnMd7s41psXl7/+8M3udbms1bZetzOhfyC+adY+4EWrHhWNRga/HIVQTWVe+dhBpm/N1YIcDT7Cra6AggqyyHom0HViKcpH5S+o5pruQMZsHagzS9H/PD7Bw8xoPDuUdEmCyI8fAwX2r4wP5GmdhL//Jex4hHbhosu2iBKUwAOW0pdk6UhUtAcD7KwXMDI0/BB/Fw64x7pZdCtBbG6Hjn7tvymqeosU1t8CspvvWDJN0w96woxDFIRm6S/+a19b4b4kt828IK+bPK/aiqiyEuPnxekDBCR25etBOzn1jz1+XkEUcOrJN8Mv7ecXjkP1e/XxWa0z1iPmjZ4/PgULGyCiYm8dPNJwGf7+8FlxCq8RXfupzemyRGClo4LqfqKgTgsPLujPsyaY7XVEQkFp4rL1NubfJ9bwkybWZqsqQBNk212cN/PuCOXanPNZAMNJMpg1W7ArYbSHZejgIcyle6axnVCAV8NAsSC1ar9lWUU+RS7EFKpFGbp0Ktfobe1nainDRP2epXNG5NHG77nxFdb4g=
