@@ -1,6 +1,6 @@
 {
   "name": "node-zway",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Node JS interface for Z-Way (Razberry)",
   "main": "lib/index.js",
   "scripts": {
