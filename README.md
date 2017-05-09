@@ -92,6 +92,10 @@ Queries:
 
 ### 49 - SensorMultilevel
 
+Commands:
+
+- refresh();
+
 Events:
 
 - onChange();
